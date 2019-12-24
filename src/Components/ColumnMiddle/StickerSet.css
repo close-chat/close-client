@@ -1,0 +1,40 @@
+/*
+ *  Copyright (c) 2018-present, Evgeny Nadymov
+ *
+ * This source code is licensed under the GPL v.3.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.sticker-set-title {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sticker-set-title-wrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.sticker-set-title-wrapper span {
+    display: block;
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+.sticker-set-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sticker-set-item {
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
