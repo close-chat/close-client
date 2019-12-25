@@ -68,7 +68,8 @@ class TelegramApp extends Component {
             tdlibDatabaseExists: false,
             inactive: false,
             fatalError: false,
-            nativeMobile: isMobile()
+            nativeMobile: isMobile(),
+            contract: null
         };
     }
 
@@ -129,6 +130,12 @@ class TelegramApp extends Component {
     onUpdateFatalError = update => {
         this.setState({ fatalError: true });
     };
+
+
+    setContract = contract => {
+        this.setState({ contract });
+    }
+
 
     onUpdateAuthorizationState = update => {
         const { authorization_state: authorizationState } = update;
@@ -205,7 +212,7 @@ class TelegramApp extends Component {
         }
 
         const loading = t('Loading').replace('...', '');
-        let page = <MainPage />;
+        let page = <MainPage contract={this.state.contract}/>;
         //     (
         //     <React.Suspense fallback={<StubPage title='' />}>
         //         <MainPage />
@@ -231,7 +238,7 @@ class TelegramApp extends Component {
                 case 'authorizationStateWaitPhoneNumber':
                 case 'authorizationStateWaitTdlib':
                     page = (
-                        <NearLogin>
+                        <NearLogin setContract={this.setContract}>
                             <AuthFormControl
                                 authorizationState={authorizationState}
                                 onChangePhone={this.handleChangePhone}

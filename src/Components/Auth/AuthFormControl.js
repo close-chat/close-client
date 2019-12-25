@@ -28,7 +28,7 @@ const styles = theme => ({
 class AuthFormControl extends React.Component {
 
     render() {
-        const { classes, authorizationState } = this.props;
+        const { classes, authorizationState, contract } = this.props;
         const { defaultPhone } = ApplicationStore;
         let control = null;
         switch (authorizationState['@type']) {
